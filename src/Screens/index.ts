@@ -1,5 +1,6 @@
 import Welcome from './Welcome/Welcome';
 import Assets from './Assets/Assets';
-import Trade from './Trade';
+import Wallet from '../Wallet/Wallet';
+import Trade from './Trade/Trade';
 
-export {Welcome, Assets, Trade};
+export {Welcome, Assets, Trade, Wallet};

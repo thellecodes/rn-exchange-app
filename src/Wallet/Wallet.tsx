@@ -1,39 +1,39 @@
-import React, { useMemo } from "react";
-import { View, StyleSheet, useWindowDimensions } from "react-native";
+import React, {useMemo} from 'react';
+import {View, StyleSheet, useWindowDimensions} from 'react-native';
 import {
   Canvas,
   Path,
   Group,
   LinearGradient,
   vec,
-} from "@shopify/react-native-skia";
+} from '@shopify/react-native-skia';
 import Animated, {
   useAnimatedStyle,
   useDerivedValue,
   useSharedValue,
-} from "react-native-reanimated";
-import { GestureDetector, ScrollView } from "react-native-gesture-handler";
+} from 'react-native-reanimated';
+import {GestureDetector, ScrollView} from 'react-native-gesture-handler';
 
-import { PADDING, COLORS, getGraph } from "./Model";
-import { getYForX } from "./Math";
-import { Cursor } from "./components/Cursor";
-import { Selection } from "./components/Selection";
-import { List } from "./components/List";
-import { Header } from "./components/Header";
-import { Label } from "./components/Label";
-import { useGraphTouchHandler } from "./components/useGraphTouchHandler";
+import {PADDING, COLORS, getGraph} from './Model';
+import {getYForX} from './Math';
+import {Cursor} from './components/Cursor';
+import {Selection} from './components/Selection';
+import {List} from './components/List';
+import {Header} from './components/Header';
+import {Label} from './components/Label';
+import {useGraphTouchHandler} from './components/useGraphTouchHandler';
 
 const touchableCursorSize = 80;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1F1D2B",
+    backgroundColor: '#1F1D2B',
   },
 });
 
 export const Wallet = () => {
   const window = useWindowDimensions();
-  const { width } = window;
+  const {width} = window;
   const height = Math.min(window.width, window.height) / 2;
   // const translateY = height + PADDING;
   // const graphs = useMemo(() => getGraph(width, height), [width, height]);
@@ -102,3 +102,5 @@ export const Wallet = () => {
     </ScrollView>
   );
 };
+
+export default Wallet;
