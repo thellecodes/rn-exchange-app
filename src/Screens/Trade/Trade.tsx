@@ -6,12 +6,10 @@ import Chart from './Chart';
 
 export const {width: size} = Dimensions.get('window');
 
-const candles = data.slice(0, 27);
+const candles = data.slice(0, 20);
 const values = candles.map(candle => [candle.low, candle.high]).flat();
 const domain = [Math.min(...values), Math.max(...values)];
 const caliber = size / candles.length;
-
-console.log(domain);
 
 function Trade() {
   return (

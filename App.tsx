@@ -11,7 +11,7 @@ import {Welcome, Assets, Trade, Wallet} from './src/Screens';
 const Stack = createNativeStackNavigator<Routes>();
 
 const AppNavigator = () => (
-  <Stack.Navigator initialRouteName="Trade">
+  <Stack.Navigator initialRouteName="Welcome">
     <Stack.Screen
       name="Wallet"
       component={Wallet}

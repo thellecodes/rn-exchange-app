@@ -1,4 +1,11 @@
-import {Canvas, Fill, ImageSVG, useSVG} from '@shopify/react-native-skia';
+import {
+  Canvas,
+  Circle,
+  Fill,
+  Group,
+  ImageSVG,
+  useSVG,
+} from '@shopify/react-native-skia';
 import React, {useState} from 'react';
 import {View, StyleSheet, LayoutChangeEvent} from 'react-native';
 import {Box} from 'native-base';
@@ -124,6 +131,40 @@ function Welcome() {
           {BGSVG && (
             <ImageSVG svg={BGSVG} x={0} y={0} width={WIDTH} height={HEIGHT} />
           )}
+          <Group color="#A86F6C" style={'stroke'}>
+            <Circle r={120} strokeWidth={1.5} cx={40} cy={HEIGHT * 0.25} />
+            <Circle r={80} strokeWidth={1.5} cx={20} cy={HEIGHT * 0.25} />
+          </Group>
+
+          <Group color="#A86F6C" style={'stroke'}>
+            <Circle
+              r={120}
+              strokeWidth={1.5}
+              cx={WIDTH - 50}
+              cy={HEIGHT * 0.5}
+            />
+            <Circle
+              r={80}
+              strokeWidth={1.5}
+              cx={WIDTH - 85}
+              cy={HEIGHT * 0.48}
+            />
+          </Group>
+
+          <Group color="#4E4744" style={'stroke'}>
+            <Circle
+              r={80}
+              strokeWidth={1.5}
+              cx={WIDTH / 1.5}
+              cy={HEIGHT - 50}
+            />
+            <Circle
+              r={50}
+              strokeWidth={1.5}
+              cx={WIDTH / 1.36}
+              cy={HEIGHT - 60}
+            />
+          </Group>
         </Canvas>
       </View>
       <View style={[StyleSheet.absoluteFill]}>
@@ -148,7 +189,12 @@ function Welcome() {
               }}>
               {infoData.map((data, index) => {
                 return (
-                  <Content key={index} data={data} translateX={translateX} />
+                  <Content
+                    key={index}
+                    index={index}
+                    data={data}
+                    translateX={translateX}
+                  />
                 );
               })}
             </Animated.View>
@@ -163,8 +209,7 @@ function Welcome() {
                   marginBottom: 10,
                   borderRadius: 10,
                   height: 72,
-                  backgroundColor:
-                    'linear Gradient rgba(255, 255, 255, 0.15) @ 0% rgba(255, 255, 255, 0.02) @ 100%',
+                  backgroundColor: 'rgba(255, 255, 255,0.15)',
                   justifyContent: 'center',
                   alignItems: 'center',
                 }}>

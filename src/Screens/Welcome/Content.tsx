@@ -8,12 +8,12 @@ import Animated, {
 import {HEIGHT, WIDTH, normalize} from '../../utils/Constants';
 
 interface ContentProps {
-  key: number;
   data: any;
   translateX: Animated.SharedValue<number>;
+  index: number
 }
 
-function Content({key: index, data, translateX}: ContentProps) {
+function Content({index, data, translateX}: ContentProps) {
   const style = useAnimatedStyle(() => {
     return {
       transform: [
