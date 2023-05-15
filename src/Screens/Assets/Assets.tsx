@@ -9,7 +9,15 @@ import {
   StatusBar,
 } from 'react-native';
 import {HEIGHT, WIDTH, normalize} from '../../utils/Constants';
-import {Canvas, LinearGradient, Rect, vec} from '@shopify/react-native-skia';
+import {
+  BlurMask,
+  Canvas,
+  Circle,
+  Group,
+  LinearGradient,
+  Rect,
+  vec,
+} from '@shopify/react-native-skia';
 import Header from './Header';
 import {Button, Icon} from 'native-base';
 import DepositIcon from '../../icons/Deposit';
@@ -102,13 +110,21 @@ function Assets() {
               colors={['#EABB13', '#161514']}
             />
           </Rect>
+          <Group>
+            <BlurMask blur={20} style="normal" />
+            <Circle
+              r={WIDTH - WIDTH * 0.6}
+              color="#322213"
+              cx={WIDTH / 2}
+              cy={20}
+            />
+          </Group>
         </Canvas>
         <View
           style={[
             StyleSheet.absoluteFill,
             {
               paddingHorizontal: 24,
-              backgroundColor: '#161514',
               justifyContent: 'flex-end',
             },
           ]}>
@@ -202,9 +218,10 @@ function Assets() {
                 alignItems: 'center',
                 gap: 30,
               }}>
-              {tokens.map(({title, price, percentageChange, icon}, a) => {
+              {tokens.map(({title, price, percentageChange, icon}, index) => {
                 return (
                   <Animated.View
+                    key={index}
                     style={{
                       width: WIDTH / 2 - 30,
                       height: 191,
@@ -324,7 +341,7 @@ function Assets() {
               paddingHorizontal: 20,
               height: 75,
               alignSelf: 'center',
-              transform: [{translateY: HEIGHT - 75}],
+              transform: [{translateY: HEIGHT - 90}],
               paddingVertical: 5,
             },
           ]}>
@@ -332,7 +349,7 @@ function Assets() {
             style={{
               height: '100%',
               width: '100%',
-              backgroundColor: 'red',
+              backgroundColor: 'rgba(255, 255, 255,0.2)',
               borderRadius: 16,
             }}></View>
         </Animated.View>
